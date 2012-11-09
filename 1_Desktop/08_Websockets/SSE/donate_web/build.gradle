@@ -7,6 +7,10 @@ def jerseyVersion = '2.0-m09'
 
 repositories {
     mavenCentral()
+    maven{
+        name "Eclipse"
+        url "http://download.eclipse.org/rt/eclipselink/maven.repo"
+    }
 }
 
 dependencies {
