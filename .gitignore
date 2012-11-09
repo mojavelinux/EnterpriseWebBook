@@ -1,2 +1,5 @@
 .preview*
 .metadata*
+*.iml
+*.ipr
+*.iws
