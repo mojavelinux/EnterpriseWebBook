@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function onLoad() {
+            if (!!window.EventSource) {
+                var source = new EventSource('/donate_web/api/donations/events');
+            } else {
+                console.log("sse not supported")
+            }
+
+            source.addEventListener('create', function (e) {
+                console.log(e.data);
+            }, false);
+
+            source.addEventListener('open', function (e) {
+                // Connection was opened.
+            }, false);
+
+            source.addEventListener('error', function (e) {
+                if (e.readyState == EventSource.CLOSED) {
+                    // Connection was closed.
+                }
+            }, false);
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+
+</body>
+</html>

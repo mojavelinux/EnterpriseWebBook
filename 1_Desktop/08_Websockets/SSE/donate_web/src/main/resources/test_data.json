@@ -1,0 +1,12 @@
+{
+    "donor":{
+        "address":"154 Summit Ave",
+        "city":"Lyndhurst",
+        "country":"United States",
+        "email":"viktor.gamov@faratasystems.com",
+        "fullName":"Viktor Gamov",
+        "state":"NJ",
+        "zip":"07071"
+    },
+    "amount":200.0
+}
