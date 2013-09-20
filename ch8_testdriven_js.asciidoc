@@ -27,14 +27,26 @@ Any software has bugs. But in interpreted languages like JavaScript you don't ha
 
 === Testing Basics
 
-In this chapter we are going to discuss the following types of testing (we don't cover QA and UAT in this book):
+In this chapter we'll discuss the following types of testing: 
 
-- Unit tests
-- Integration tests
-- Functional tests
-- Load (a.k.a. stress) tests
+- Unit testing
+- Integration testing
+- Functional testing
+- Load (a.k.a. stress) testing
 
-Let's go over the strategies, approaches, and tools that will help you in automation of each of the above tests.
+[[QA_UAT]]
+.Quality Assurance and Acceptance Testing
+****
+Although, _Quality Assurance_ (QA) and _User Acceptance Testing_ (UAT) is far beyond the scope of this chapter you need understand the difference.
+
+Software QA (or _Quality Control_ (QC)) is the process that helps identify the correctness, completeness, security compliance and the quality of the software. QA testing _is performed by the specialists_ (testers, analysts). The goal of QA testing is to ensure that the application complies  with a set of the predefined behavior requirements.
+
+UAT _is performed by business users_ or subject area experts. The UAT should result in the  endorsement that the tested applications/functionality/module meets the agreed upon requirements. The results of UAT gives the confidence to the end-user that the system will perform in production according to specification.
+
+During the QA process the specialist intents to perform all tests trying to break the application. This approach helps finding the errors undiscovered by developers. On the contrary, during UAT the user runs business-as-usual scenarios and makes sure that business functions are implemented in the application.
+****
+
+Let's go over the strategies, approaches, and tools that will help you in test automation.
 
 ==== Unit Testing
 
@@ -47,7 +59,7 @@ Integration testing is a phase when already tested units are combined into a mod
 
 ==== Functional Testing
 
-Functional testing (or user acceptance testing) is aimed at finding out whether the application properly implements business logic. For example, if the user clicks on a row in the grid with customers, the program should display a form view with specific details about the selected customer. In functional testing business users should define what has to be tested, unlike unit or integration testing where tests are created by software developers. 
+Functional testing is aimed at finding out whether the application properly implements business logic. For example, if the user clicks on a row in the grid with customers, the program should display a form view with specific details about the selected customer. In functional testing business users should define what has to be tested, unlike unit or integration testing where tests are created by software developers. 
 
 Functional tests can be performed manually by a real person clicking through each and every view of the web application confirming that it operates properly or reporting discrepancies with the functional specifications.
 
@@ -61,15 +73,18 @@ Selenium is an advanced browser automation tool suite that has capabilities to r
 * http://casperjs.org/quickstart.html[Casper.js]
 +
 
-CasperJS is a scripting framework written in JavaScript. CasperJS allows to create interaction scenarios like defining and ordering the navigation steps, filling and submitting forms or even scrapping Web content and making Web page screenshots. CasperJS works on top of PhantomJS browser, which limits he testing runtime environment to WebKit-based browsers only. Still it's a very useful tool when you want to run tests in a Continuous Integration (CI)environment. You can read more about <<WHAT_IS_PHANTOMJS,PhantomJS>> and <<WHAT_IS_CI,CI>> later in the corresponding sidebars later in this chapter.
-
+CasperJS is a scripting framework written in JavaScript. CasperJS allows to create interaction scenarios like defining and ordering the navigation steps, filling and submitting forms or even scrapping Web content and making Web page screenshots. CasperJS works on top of PhantomJS and SlimerJS browser, which limits the testing runtime environment to WebKit-based and Gecko-based browsers. Still it's a very useful tool when you want to run tests in a Continuous Integration (CI)environment. You can read more about <<WHAT_IS_PHANTOMJS,PhantomJS and SlimerJS>> and <<WHAT_IS_CI,CI>> in the corresponding sidebars later in this chapter.
 
 [[WHAT_IS_PHANTOMJS]]
-.What is PhantomJS?
+.What is PhantomJS and SlimerJS?
 ****
-PhantomJS is a headless WebKit-based rendering engine with JavaScript API.  Think of PhantomJS as a browser that doesn't have any graphical user interface. PhantomJS can execute HTML, CSS, and JavaScript code. Because PhantomJS is not required to render GUI, it can be used in display-less environments (e.g. CI server) to run tests. In our case, Grunt automatically spawns PhantomJS instance, executes the code of our tests, reads the execution results using PhantomJS API, and prints them out in the console. 
-If you're not familiar with Grunt tasks, please, refer to <<appendix_a>> for additional information about usage Grunt in Save Sick Child project.
+PhantomJS is a headless WebKit-based rendering engine with JavaScript API.  Think of PhantomJS as a browser that doesn't have any graphical user interface. PhantomJS can execute HTML, CSS, and JavaScript code. Because PhantomJS is not required to render GUI, it can be used in display-less environments (e.g. CI server) to run tests. SlimerJS follows the same idea of headless browser, similar to PhantomJS, but it uses Gecko engine instead.
+
+PhantomsJS is built on top of Webkit and http://trac.webkit.org/wiki/JavaScriptCore[JavaScriptCore] (like Safari) and SlimerJS is built on top of Gecko and https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey[SpiderMonkey] (like Firefox). You can find the comprehensive list of difference between PhantonJS and SlimerJS APIs in http://docs.slimerjs.org/current/differences-with-phantomjs.html[SlimerJS's documentation site].
+
+In our case, Grunt automatically spawns the PhantomJS instance, executes the code of our tests, reads the execution results using PhantomJS API, and prints them out in the console. If you're not familiar with Grunt tasks, please, refer to <<appendix_a>> for additional information about usage Grunt in our Save Sick Child project.
 ****
+
 
 ==== Load Testing
 
@@ -220,14 +235,14 @@ You'll also need a test runner for the test setup.
     <meta charset="utf-8">
     <title>QUnit Example</title>
     <link rel="stylesheet" href="lib/qunit-1.11/qunit.css"> 
-    <script src="lib/qunit-1.11/qunit.js"></script>     <!-- <1> -->
-    <script type="text/javascript" src="../app/js/libs/jquery-1.9.0.min.js"></script> <!-- <2> -->
-    <script src="test/tests.js"></script>               <!-- <3> -->
+    <script src="lib/qunit-1.11/qunit.js"></script>     <!--1-->
+    <script type="text/javascript" src="../app/js/libs/jquery-1.9.0.min.js"></script> <!--2-->
+    <script src="test/tests.js"></script>               <!--3-->
 </head>
 <body>
-<div id="qunit"></div> <!-- <4> -->
+<div id="qunit"></div> <!--4-->
 <div id='qunit-fixture'>
-    <!-- <5> -->
+    <!--5-->
 </div>
 </body>
 </html>

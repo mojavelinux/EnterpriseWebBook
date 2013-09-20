@@ -1,3 +1,5 @@
+:toc!:
+
 = Enterprise Web Development: From Desktop to Mobile
 
 [.th.large-4.columns]
@@ -14,7 +16,7 @@ The book is released under a Creative Commons Attribution-NonCommercial-ShareAli
 
 ++++
 <div class="large-8 columns">
-<a class="small button" href="http://shop.oreilly.com/product/0636920028314.do?&code=WKERRLS">Buy Early Release with discount at O'Reilly</a>
+<a class="small button" href="http://shop.oreilly.com/product/0636920028314.do?&code=B2S3">Buy Early Release with discount at O'Reilly</a>
 <a class="small button success radius" href="#book_start">Or continue reading online for free!</a>
 </div>
 ++++
@@ -23,39 +25,5 @@ The book is released under a Creative Commons Attribution-NonCommercial-ShareAli
 include::buttons.asc[]
 
 include::toc.asc[]
-
-include::Introduction.asciidoc[]
-
-= Part 1: Desktop
-
-include::ch1_advancedjs.asciidoc[]
-
-include::ch2_html.asciidoc[]
-
-include::ch3_mockup.asciidoc[]
-
-include::ch4_ajax_json.asciidoc[]
-
-include::ch5_jquery.asciidoc[]
-
-include::ch6_ext_js.asciidoc[]
-
-include::ch7_large_js_apps.asciidoc[]
-
-include::ch8_testdriven_js.asciidoc[]
-
-include::ch9_websockets.asciidoc[]
-
-= Part 2: Mobile
-
-include::ch11_responsive.asciidoc[]
-
-include::ch12_jquerymobile.asciidoc[]
-
-include::ch13_senchatouch.asciidoc[]
-
-include::ch14_hybrid.asciidoc[]
-
-include::appendix_a.asciidoc[]
 
 include::stat.asc[]
